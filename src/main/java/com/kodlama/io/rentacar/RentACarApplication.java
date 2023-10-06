@@ -56,6 +56,7 @@ public class RentACarApplication {
         return new ModelMapper();
     }
 
+    //cors hatası giderildi
     @Bean
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {
