@@ -3,6 +3,7 @@ package com.kodlama.io.rentacar.business.concretes;
 import com.kodlama.io.rentacar.business.abstracts.CarService;
 import com.kodlama.io.rentacar.business.requests.CreateCarRequest;
 import com.kodlama.io.rentacar.business.requests.UpdateCarRequest;
+import com.kodlama.io.rentacar.business.responses.GetAllCarByBrandId;
 import com.kodlama.io.rentacar.business.responses.GetAllCarResponse;
 import com.kodlama.io.rentacar.business.responses.GetByIdCarResponse;
 import com.kodlama.io.rentacar.business.rules.CarBusinessRules;
@@ -53,5 +54,14 @@ public class CarManager implements CarService {
         Car car = this.carRepository.findById(id).orElseThrow();
         GetByIdCarResponse getByIdCarResponse = this.modelMapperService.forResponse().map(car, GetByIdCarResponse.class);
         return getByIdCarResponse;
+    }
+
+    @Override
+    public List<GetAllCarByBrandId> getAllCarByBrandId(int id) {
+        List<Car> cars= this.carRepository.findCarsByModel_Brand_Id(id);
+        List<GetAllCarByBrandId> carResponses = cars.stream().map(car ->
+                        this.modelMapperService.forResponse().map(car, GetAllCarByBrandId.class)).
+                collect(Collectors.toList());
+        return carResponses;
     }
 }

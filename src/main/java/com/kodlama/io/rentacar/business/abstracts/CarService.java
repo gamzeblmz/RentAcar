@@ -2,6 +2,7 @@ package com.kodlama.io.rentacar.business.abstracts;
 
 import com.kodlama.io.rentacar.business.requests.CreateCarRequest;
 import com.kodlama.io.rentacar.business.requests.UpdateCarRequest;
+import com.kodlama.io.rentacar.business.responses.GetAllCarByBrandId;
 import com.kodlama.io.rentacar.business.responses.GetAllCarResponse;
 import com.kodlama.io.rentacar.business.responses.GetByIdCarResponse;
 
@@ -13,4 +14,5 @@ public interface CarService {
     void delete(int id);
     void update(UpdateCarRequest updateCarRequest);
     GetByIdCarResponse getById(int id);
+    List<GetAllCarByBrandId> getAllCarByBrandId(int id);
 }

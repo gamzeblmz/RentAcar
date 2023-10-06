@@ -3,6 +3,7 @@ package com.kodlama.io.rentacar.webApi.controllers;
 import com.kodlama.io.rentacar.business.abstracts.CarService;
 import com.kodlama.io.rentacar.business.requests.CreateCarRequest;
 import com.kodlama.io.rentacar.business.requests.UpdateCarRequest;
+import com.kodlama.io.rentacar.business.responses.GetAllCarByBrandId;
 import com.kodlama.io.rentacar.business.responses.GetAllCarResponse;
 import com.kodlama.io.rentacar.business.responses.GetByIdCarResponse;
 import com.kodlama.io.rentacar.entities.concretes.Car;
@@ -39,9 +40,14 @@ public class CarsController {
         this.carService.update(updateCarRequest);
     }
 
-    @GetMapping({"{id}"})
+    @GetMapping("{id}")
     public GetByIdCarResponse getById(int id) {
         return this.carService.getById(id);
+    }
+
+    @GetMapping("brandId/{id}")
+    public List<GetAllCarByBrandId> getAllCarByBrandId(@PathVariable int id) {
+        return this.carService.getAllCarByBrandId(id);
     }
 
 }
