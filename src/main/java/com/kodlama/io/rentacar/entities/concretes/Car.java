@@ -29,6 +29,9 @@ public class Car {
     @Column(name = "state")
     private int state;
 
+    @Column(name = "imageUrl")
+    private String imageUrl;
+
     @ManyToOne
     @JoinColumn(name = "model_id")
     private Model model;

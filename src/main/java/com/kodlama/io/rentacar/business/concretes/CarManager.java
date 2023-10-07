@@ -10,6 +10,7 @@ import com.kodlama.io.rentacar.business.rules.CarBusinessRules;
 import com.kodlama.io.rentacar.core.utilities.mappers.ModelMapperService;
 import com.kodlama.io.rentacar.dataAccess.abstracts.CarRepository;
 import com.kodlama.io.rentacar.entities.concretes.Car;
+import com.kodlama.io.rentacar.entities.concretes.Model;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +28,7 @@ public class CarManager implements CarService {
     public void add(CreateCarRequest createCarRequest) {
         this.carBusinessRules.checkIfCarPlateExists(createCarRequest.getPlate());
         Car car = this.modelMapperService.forRequest().map(createCarRequest, Car.class);
+        car=this.modelMapperService.forRequest().map(createCarRequest, Car.class);
         this.carRepository.save(car);
     }
 

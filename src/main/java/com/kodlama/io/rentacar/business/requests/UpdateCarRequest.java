@@ -11,6 +11,7 @@ public class UpdateCarRequest {
     private int id;
     private String plate;
     private double dailyPrice;
+    private String imageUrl;
     private int modelYear;
     private int state;
     private int modelId;

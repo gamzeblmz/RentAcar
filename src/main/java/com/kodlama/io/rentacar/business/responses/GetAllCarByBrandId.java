@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 public class GetAllCarByBrandId {
    private String plate;
    private double dailyPrice;
+   private String imageUrl;
    private int modelYear;
    private int state;
    private String modelName;
